@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="dashboard-page">
+    <section class="hero-banner mb-4">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">Movie Library Premium</span>
+            <h1 class="hero-title">Discover, Manage & Explore Movies</h1>
+            <p class="hero-subtitle">
+                Welcome to your cinematic dashboard. Organize your collection, track top-rated films,
+                and manage your movie library in a modern way.
+            </p>
+            <div class="hero-actions">
+                <a href="/movies-page" class="btn btn-danger btn-lg me-2">Browse Movies</a>
+                <a href="/movies-page" class="btn btn-outline-light btn-lg">Add New Movie</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="welcome-strip mb-4">
+        <div>
+            <h2 class="mb-1">Welcome back, <span id="dashboardUsername">Movie Lover</span> 👋</h2>
+            <p class="text-muted mb-0">Here is a quick overview of your movie collection.</p>
+        </div>
+    </section>
+
+    <section class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon">🎬</div>
+                <div>
+                    <h6>Total Movies</h6>
+                    <h2 id="totalMovies">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+                <div>
+                    <h6>Average Rating</h6>
+                    <h2 id="avgRating">0.0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div>
+                    <h6>Top Rated</h6>
+                    <h2 id="topMovie">N/A</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon">🎭</div>
+                <div>
+                    <h6>Genres</h6>
+                    <h2 id="genreCount">0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div>
+                    <h6>Most Common Genre</h6>
+                    <h2 id="commonGenre">N/A</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="section-header">
+            <h3>Popular Genres</h3>
+        </div>
+        <div id="genreChips" class="genre-chip-wrap">
+            <span class="genre-chip">No data yet</span>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="section-header">
+            <h3>Top Rated Movies</h3>
+            <a href="/movies-page" class="see-all-link">See all</a>
+        </div>
+        <div id="topRatedRow" class="movie-grid"></div>
+    </section>
+
+    <section class="mb-4">
+        <div class="section-header">
+            <h3>Recently Added</h3>
+            <a href="/movies-page" class="see-all-link">Manage library</a>
+        </div>
+        <div id="latestRow" class="movie-grid"></div>
+    </section>
+</div>
+
+{% endblock %}

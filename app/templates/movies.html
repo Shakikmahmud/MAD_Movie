@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Movie Management</h2>
+
+<div class="card p-3 mb-4 shadow-sm">
+    <h4>Add / Update Movie</h4>
+    <input type="hidden" id="movieId">
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <input id="title" class="form-control" placeholder="Title">
+        </div>
+        <div class="col-md-6">
+            <input id="director" class="form-control" placeholder="Director">
+        </div>
+        <div class="col-md-4">
+            <input id="genre" class="form-control" placeholder="Genre">
+        </div>
+        <div class="col-md-4">
+            <input id="year" type="number" class="form-control" placeholder="Year">
+        </div>
+        <div class="col-md-4">
+            <input id="rating" type="number" step="0.1" class="form-control" placeholder="Rating">
+        </div>
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-success" onclick="saveMovie()">Save Movie</button>
+        <button class="btn btn-secondary" onclick="clearForm()">Clear</button>
+    </div>
+
+    <div id="movieMessage" class="mt-3"></div>
+</div>
+
+<div class="card p-3 shadow-sm">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Advanced Filtering</h4>
+    </div>
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-3">
+            <input id="searchBox" class="form-control" placeholder="Search title">
+        </div>
+        <div class="col-md-2">
+            <input id="genreFilter" class="form-control" placeholder="Genre">
+        </div>
+        <div class="col-md-2">
+            <input id="directorFilter" class="form-control" placeholder="Director">
+        </div>
+        <div class="col-md-2">
+            <input id="yearFilter" type="number" class="form-control" placeholder="Year">
+        </div>
+        <div class="col-md-1">
+            <input id="ratingFilter" type="number" step="0.1" class="form-control" placeholder="Min">
+        </div>
+        <div class="col-md-2">
+            <select id="sortBy" class="form-control">
+                <option value="">Sort By</option>
+                <option value="title_asc">Title A-Z</option>
+                <option value="title_desc">Title Z-A</option>
+                <option value="rating_desc">Rating High-Low</option>
+                <option value="rating_asc">Rating Low-High</option>
+                <option value="year_desc">Newest First</option>
+                <option value="year_asc">Oldest First</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <button class="btn btn-dark me-2" onclick="loadMovies()">Apply Filters</button>
+        <button class="btn btn-outline-light" onclick="resetFilters()">Reset</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Director</th>
+                    <th>Genre</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="moviesTableBody"></tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
